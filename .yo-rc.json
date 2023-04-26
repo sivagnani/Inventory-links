@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.16.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.0",
+    "libraryName": "inventory-links",
+    "libraryId": "64c547a0-1388-4562-aabc-ca53411f47df",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "inventory-links",
+    "solutionShortDescription": "inventory-links description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
