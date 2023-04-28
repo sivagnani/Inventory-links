@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneDropdown,
+  IPropertyPaneDropdownOption
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
@@ -12,19 +13,48 @@ import { IInventoryLinksProps } from './components/IInventoryLinksProps';
 import { ISPFXContext } from '@pnp/sp';
 
 export interface IInventoryLinksWebPartProps {
-  context:ISPFXContext;
+  context: ISPFXContext;
+  filterMode: string;
 }
 
 export default class InventoryLinksWebPart extends BaseClientSideWebPart<IInventoryLinksWebPartProps> {
-
+  private filterModes: IPropertyPaneDropdownOption[] = [{
+    key: 'connectionInventory',
+    text: 'Connection Inventory'
+  },
+  {
+    key: 'rarelyAccessed',
+    text: 'Rarely Accessed'
+  },
+  {
+    key: 'externalUserInventory',
+    text: 'External User Inventory'
+  },
+  {
+    key: 'userPermissionsInventory',
+    text: 'User Permissions Inventory'
+  },
+  {
+    key: 'siteCollectionInventory',
+    text: 'SiteCollection Inventory'
+  },
+  {
+    key: 'webInventory',
+    text: 'Web Inventory'
+  }
+]
 
   public render(): void {
+    console.log(this.properties.filterMode+"hi");
     const element: React.ReactElement<IInventoryLinksProps> = React.createElement(
       InventoryLinks,
-      {context:this.context}
+      {
+        context: this.context,
+        filterMode: this.properties.filterMode,
+      }
     );
     ReactDom.render(element, this.domElement);
-  }  
+  }
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -36,8 +66,9 @@ export default class InventoryLinksWebPart extends BaseClientSideWebPart<IInvent
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneDropdown('filterMode', {
+                  options: this.filterModes,
+                  label: strings.FilterMode
                 })
               ]
             }
