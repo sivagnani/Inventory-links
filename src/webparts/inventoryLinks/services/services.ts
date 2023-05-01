@@ -3,14 +3,14 @@ import { IServices } from './IServices';
 import { IWeb, IWebInfo, Web } from '@pnp/sp/webs';
 import "@pnp/sp/sites";
 import "@pnp/sp/webs";
-import "@pnp/sp/lists"
-import { IListInfo, ISiteInfo } from '../model/model';
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
+import { IListInfo, ISiteInfo, IUserInfo } from '../model/model';
 export class Services implements IServices {
     allSitesInfo: ISiteInfo[] = [];
     allListsInfo: IListInfo[] = [];
     async getRootWebDetails(context: ISPFXContext): Promise<void> {
         const web = Web("https://digitalrealty.sharepoint.com").using(SPFx(context));
-        // await this.getListDetails(web);
         await web().then(async (site: IWebInfo) => {
             this.allSitesInfo.push({
                 WebTitle: site.Title,
@@ -65,5 +65,11 @@ export class Services implements IServices {
         const date = new Date(dateStr);
         const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
         return (formattedDate);
+    }
+    getExternalUsers(context: ISPFXContext):Promise<IUserInfo[]>{
+        const web = Web("https://digitalrealty.sharepoint.com/Portfolio/").using(SPFx(context));
+        return web.lists.getByTitle("SignInReport").items
+            .filter("IsActive eq 1 and Disabled eq 0").select("Title","UPN","SignInDateTime","Id","LoginName")
+            .top(5000)();
     }
 }

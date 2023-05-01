@@ -1,12 +1,11 @@
 import { ISPFXContext } from "@pnp/sp";
-import { IListInfo, ISiteInfo } from "../model/model";
+import { IFilterMode, IListInfo, ISiteInfo } from "../model/model";
 export interface IInventoryLinksProps {
   context:ISPFXContext;
   filterMode:string;
 }
 export interface IInventoryLinksState{
-  filterMode:string;
-  isRarelyAccess:boolean;
+  filterMode:IFilterMode;
   allSitesInfo:ISiteInfo[];
   allListsInfo:IListInfo[];
   isSubSiteSeleted:boolean;

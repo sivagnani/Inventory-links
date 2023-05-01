@@ -16,3 +16,15 @@ export interface IListInfo{
     ListRelativeURL: string;
     HasUniquePermissions: boolean;
 }
+export interface IUserInfo{
+    Title:string;
+    UPN:string;
+    SignInDateTime:string;
+    Id:string;
+    LoginName:string;
+}
+export interface IFilterMode{
+    isDatainventory:boolean;
+    isRarelyAccessed:boolean;
+    isExternalUsersInventory:boolean;
+}

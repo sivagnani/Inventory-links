@@ -4,6 +4,7 @@
   background-color: #E7E8E8;
   padding: 5px 10px 10px 10px;
   font-family: "Segoe UI", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+  min-width: 80vw;
 }
 
 .inventoryTitle {
@@ -18,78 +19,8 @@ div.inventoryBody {
   display: block;
 }
 
-div.filtersContainer {
-  padding: 10px;
-  background-color: #E7E8E8;
-}
 
-label {
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 15px;
-  width: 30%;
-}
 
-select.CADropdown {
-  width: 60%;
-  padding: 5px;
-  font-size: 15px;
-  display: inline-block;
-}
 
-input.btnGetResults {
-  margin-left: 30%;
-  background-color: rgb(72, 61, 139);
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 7px 10px;
-  font-size: 11px;
-}
-select.requiredInputValue {
-  border: 1px solid red !important;
-  background-color: #f5dbdb !important;
-}
 
-div.ResultContainer {
-  background-color: #E7E8E8;
-  margin-top: 10px;
-  padding: 5px 10px 10px 10px;
-}
 
-h2.ResultContainerHeading {
-  background-color: #E7E8E8;
-  color: #262626;
-  font-size: 18px;
-  font-weight: 300;
-  margin-top: 0;
-}
-
-table.ResultsTable {
-  width: 100%;
-  background-color: #FFF;
-  table-layout: auto;
-}
-
-div.Results {
-  padding: 10px;
-  background-color: #FFF;
-  overflow: auto;
-  max-height: 90vh;
-}
-div.noRecords {
-  font-size: 14px;
-  color: #888383;
-}
-
-th,
-td {
-  border: 1px solid grey;
-  padding: 10px;
-  overflow-wrap: break-word;
-}
-
-th {
-  text-align: center;
-}

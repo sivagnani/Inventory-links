@@ -1,0 +1,43 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+div.ResultContainer {
+    background-color: #E7E8E8;
+    margin-top: 10px;
+    padding: 5px 10px 10px 10px;
+}
+
+h2.ResultContainerHeading {
+    background-color: #E7E8E8;
+    color: #262626;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+table.ResultsTable {
+    width: 100%;
+    background-color: #FFF;
+    table-layout: auto;
+}
+
+div.Results {
+    padding: 10px;
+    background-color: #FFF;
+    overflow: auto;
+    max-height: 90vh;
+}
+div.noRecords {
+    font-size: 14px;
+    color: #888383;
+  }
+  
+  th,
+  td {
+    border: 1px solid grey;
+    padding: 10px;
+    overflow-wrap: break-word;
+  }
+  
+  th {
+    text-align: center;
+  }

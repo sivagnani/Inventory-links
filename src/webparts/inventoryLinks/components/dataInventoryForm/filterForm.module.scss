@@ -1,0 +1,36 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+div.filtersContainer {
+    padding: 10px;
+    background-color: #E7E8E8;
+}
+
+label {
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100px;
+}
+
+select.CADropdown {
+    width: 60%;
+    padding: 5px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+select.requiredInputValue {
+    border: 1px solid red !important;
+    background-color: #f5dbdb !important;
+}
+
+input.btnGetResults {
+    margin-left: 100px;
+    background-color: rgb(72, 61, 139);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 7px 10px;
+    font-size: 11px;
+}
