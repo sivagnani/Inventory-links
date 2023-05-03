@@ -9,7 +9,7 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'InventoryLinksWebPartStrings';
 import InventoryLinks from './components/InventoryLinks';
-import { IInventoryLinksProps } from './components/IInventoryLinksProps';
+import { IInventoryLinksProps } from './components/IInventoryLinks';
 import { ISPFXContext } from '@pnp/sp';
 
 export interface IInventoryLinksWebPartProps {
@@ -45,7 +45,7 @@ export default class InventoryLinksWebPart extends BaseClientSideWebPart<IInvent
 ]
 
   public render(): void {
-    console.log(this.properties.filterMode+"hi");
+    console.log(this.properties.filterMode);
     const element: React.ReactElement<IInventoryLinksProps> = React.createElement(
       InventoryLinks,
       {

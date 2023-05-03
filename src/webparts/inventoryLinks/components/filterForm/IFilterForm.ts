@@ -1,14 +1,9 @@
-import { IFilterMode, ISiteInfo } from "../../model/model";
+import { ISPFXContext } from "@pnp/sp";
+import { IFilterMode } from "../../model/model";
 
 export interface IFilterFormProps{
-    handleInputChange:(event:React.ChangeEvent<HTMLSelectElement>)=>void;
     filterMode:IFilterMode;
-    source:string;
-    isSubSiteSeleted:boolean;
-    allSitesInfo:ISiteInfo[];
-    showSubSiteError:boolean;
-    usedSince:number;
-    fetchResults:()=>void;
+    context:ISPFXContext;
 }
 export interface IFilterFormState{
     

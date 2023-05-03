@@ -1,14 +1,21 @@
-import { ISiteInfo } from "../../model/model";
+import { ISPFXContext } from "@pnp/sp";
+import { IListInfo, ISiteInfo } from "../../model/model";
 
-export interface IRarelyAccessedFormProps{
-    handleInputChange:(event:React.ChangeEvent<HTMLSelectElement>)=>void;
-    source:string;
-    isSubSiteSeleted:boolean;
-    allSitesInfo:ISiteInfo[];
-    usedSince:number,
-    fetchResults:()=>void;
-    showSubSiteError:boolean;
+export interface IRarelyAccessedFormProps {
+    context:ISPFXContext;
 }
-export interface IRarelyAccessedFormState{
-    
+export interface IRarelyAccessedFormState {
+    allSitesInfo: ISiteInfo[];
+    allListsInfo: IListInfo[];
+    isSubSiteSeleted: boolean;
+    showResults: boolean;
+    showSiteResults: boolean;
+    noResultsFoundError: boolean;
+    source: string;
+    searchFor: string;
+    subSite: string;
+    usedSince: number;
+    showSubSiteError: boolean;
+    siteResults: ISiteInfo[];
+    listResults: IListInfo[];
 }

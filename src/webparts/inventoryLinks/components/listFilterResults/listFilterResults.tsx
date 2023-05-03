@@ -40,25 +40,7 @@ export default class ListFilterResults extends React.Component<IListFilterResult
                                 <th>Last Accessed On</th>
                                 <th>List Link</th>
                               </tr>
-                              {this.props.listResults.sort((function (a, b) {
-                                if (a.WebTitle.toLowerCase() < b.WebTitle.toLowerCase()) {
-                                  return -1;
-                                }
-                                else if (a.WebTitle.toLowerCase() > b.WebTitle.toLowerCase()) {
-                                  return 1;
-                                }
-                                else {
-                                  if (a.ListTitle.toLowerCase() < b.ListTitle.toLowerCase()) {
-                                    return -1;
-                                  }
-                                  else if (a.ListTitle.toLowerCase() > b.ListTitle.toLowerCase()) {
-                                    return 1;
-                                  }
-                                  else {
-                                    return 0;
-                                  }
-                                }
-                              })).map((list) =>
+                              {this.props.listResults.map((list) =>
                                 <tr>
                                   <td className='text-center'>{list.WebTitle}</td>
                                   <td>{list.ListTitle}</td>

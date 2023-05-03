@@ -1,5 +1,10 @@
 @import '~@fluentui/react/dist/sass/References.scss';
-
+.inventoryTitle {
+    font-size: 22px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
 div.filtersContainer {
     padding: 10px;
     background-color: #E7E8E8;

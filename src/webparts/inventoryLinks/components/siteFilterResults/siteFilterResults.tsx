@@ -37,9 +37,7 @@ export default class SiteFilterResults extends React.Component<ISiteFilterResult
                                             <th>Last Accessed On</th>
                                             <th>Site Link</th>
                                         </tr>
-                                        {this.props.siteResults.sort((function (a, b) {
-                                            return ((a.WebTitle.toLowerCase() < b.WebTitle.toLowerCase()) ? -1 : ((a.WebTitle.toLowerCase() > b.WebTitle.toLowerCase()) ? 1 : 0))
-                                        })).map((site) =>
+                                        {this.props.siteResults.map((site) =>
                                             <tr>
                                                 <td>{site.WebTitle}</td>
                                                 <td>{site.RelativeURL}</td>

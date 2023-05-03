@@ -72,4 +72,11 @@ export class Services implements IServices {
             .filter("IsActive eq 1 and Disabled eq 0").select("Title","UPN","SignInDateTime","Id","LoginName")
             .top(5000)();
     }
+    disableUser(context: ISPFXContext,id:string):Promise<Boolean>{
+        const web = Web("https://digitalrealty.sharepoint.com/Portfolio/").using(SPFx(context));
+        return web.lists.getByTitle("SignInReport").items.getById(Number(id)).update({
+            'Disabled':true,
+        }).then(()=>true)
+
+    }
 }
