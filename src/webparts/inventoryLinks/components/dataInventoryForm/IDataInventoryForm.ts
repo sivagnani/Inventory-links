@@ -15,5 +15,7 @@ export interface IDataInventoryFormState {
     subSite: string;
     showSubSiteError: boolean;
     siteResults: ISiteInfo[];
-    listResults: IListInfo[];
+    listResults:{
+        [key: string]: IListInfo[];
+    };
 }

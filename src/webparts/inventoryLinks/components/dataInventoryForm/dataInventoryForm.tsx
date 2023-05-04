@@ -20,7 +20,7 @@ export default class DataInventoryForm extends React.Component<IDataInventoryFor
             searchFor: "Sites",
             subSite: "0",
             siteResults: [],
-            listResults: [],
+            listResults: {},
         }
     }
     componentDidMount(): void {
@@ -129,18 +129,20 @@ export default class DataInventoryForm extends React.Component<IDataInventoryFor
                     })
                 }
                 else {
-                    let result = filteredData.filter((list) => list.ListRelativeURL.slice(0, this.state.subSite.length) === this.state.subSite);
+                    const result:IListInfo[] = filteredData.filter((list) => list.ListRelativeURL.slice(0, this.state.subSite.length) === this.state.subSite);
+                    const finalListResult=this.devidingListInfo(result);
                     this.setState({
-                        listResults: result,
+                        listResults: finalListResult,
                         showResults: true,
                         showSiteResults: false,
                         noResultsFoundError: (result.length === 0),
-                    })
+                    });
                 }
             }
             else {
+                const finalListResult=this.devidingListInfo(filteredData);
                 this.setState({
-                    listResults: filteredData,
+                    listResults: finalListResult,
                     showResults: true,
                     showSiteResults: false,
                     noResultsFoundError: (filteredData.length === 0),
@@ -148,6 +150,17 @@ export default class DataInventoryForm extends React.Component<IDataInventoryFor
             }
         }
 
+    }
+    devidingListInfo(filteredData:IListInfo[]){
+        const result = filteredData.reduce((acc:{[key:string]:IListInfo[]}, person) => {
+            const index = person.WebTitle;
+            if (!acc[index]) {
+              acc[index]=[];
+            }
+            acc[index].push(person);
+            return acc;
+          }, {});
+        return result;
     }
     render(): React.ReactNode {
         return (

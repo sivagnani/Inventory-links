@@ -17,5 +17,7 @@ export interface IRarelyAccessedFormState {
     usedSince: number;
     showSubSiteError: boolean;
     siteResults: ISiteInfo[];
-    listResults: IListInfo[];
+    listResults: {
+        [key: string]: IListInfo[];
+    };
 }

@@ -45,12 +45,14 @@ export default class SiteFilterResults extends React.Component<IUserFilterResult
     }
     handleNameSortClick() {
         this.setState({
-            showNameSortOptions:true,
+            showNameSortOptions:!this.state.showNameSortOptions,
+            showDateSortOptions:false
         });
     }
     handleDateSortClick() {
         this.setState({
-            showDateSortOptions:true,
+            showDateSortOptions:!this.state.showDateSortOptions,
+            showNameSortOptions:false
         });
     }
     convertDate(dateStr: string): string {
@@ -101,7 +103,7 @@ export default class SiteFilterResults extends React.Component<IUserFilterResult
             userInfos: sortedData,
             isSortbyName: false,
             isAscending: true,
-            showDateSortOptions:false
+            showDateSortOptions:false,
         })
     }
     onDisableClick(id: string) {
