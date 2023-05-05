@@ -3,7 +3,7 @@
   "solution": {
     "name": "inventory-links-client-side-solution",
     "id": "64c547a0-1388-4562-aabc-ca53411f47df",
-    "version": "1.0.0.2",
+    "version": "1.0.0.5",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -30,7 +30,7 @@
         "title": "inventory-links Feature",
         "description": "The feature that activates elements of the inventory-links solution.",
         "id": "47af1ecf-dfb4-4f7b-90b9-30d0ed2272f8",
-        "version": "1.0.0.2"
+        "version": "1.0.0.5"
       }
     ]
   },

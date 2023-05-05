@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./siteFilterResults.module.scss";
+import styles from "./userFilterResults.module.scss";
 import { IUserFilterResultsProps, IUserFilterResultsState } from './IUserFilterResults'
 import { IUserInfo } from "../../model/model";
 import { Services } from "../../services/services";
@@ -33,9 +33,6 @@ export default class SiteFilterResults extends React.Component<IUserFilterResult
                 isAscending: true,
             })
         }
-    }
-    componentWillUnmount() {
-        document.removeEventListener("click", this.handleClick);
     }
     handleClick() {
         (this.state.showNameSortOptions || this.state.showDateSortOptions)&&this.setState({
@@ -112,7 +109,7 @@ export default class SiteFilterResults extends React.Component<IUserFilterResult
     render(): React.ReactNode {
         return (
             <div>
-                <div style={{position:'fixed',top:0,left:0,right:0,bottom:0}} onClick={()=>this.handleClick()}></div>
+                {(this.state.showDateSortOptions||this.state.showNameSortOptions)&&<div className={styles.allPage} onClick={()=>this.handleClick()}></div>}
                 <div id="sitesResultsContainer" className={styles.ResultContainer}>
                     <h2 className={styles.ResultContainerHeading}>
                         {(this.props.userResults.searchFromDate !== "") && <div className={styles.inlineBlock}><b className={styles.fontBold}>Not Signed-In since:</b><span>{this.props.userResults.searchFromDate}</span></div>}
